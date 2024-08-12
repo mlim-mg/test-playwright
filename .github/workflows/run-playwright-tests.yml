@@ -1,0 +1,38 @@
+name: Run Playwright Tests for Software
+
+on:
+  push:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Software Repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 1
+
+    - name: Checkout Playwright Repository
+      uses: actions/checkout@v3
+      with:
+        repository: https://github.com/MedGrocer/it-qa-tests
+        path: playwright-repo
+        fetch-depth: 1
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Adjust as needed
+
+    - name: Install dependencies
+      run: |
+        cd playwright-repo
+        npm install
+        npx playwright install
+        
+
+    - name: Run Playwright Tests for Software1
+      run: |
+        cd playwright-repo
+        npx playwright test --config=./playwright.config.js ./tests/blp
