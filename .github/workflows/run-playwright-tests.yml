@@ -16,7 +16,7 @@ jobs:
     - name: Checkout Playwright Repository
       uses: actions/checkout@v3
       with:
-        repository: https://github.com/MedGrocer/it-qa-tests
+        repository: MedGrocer/it-qa-tests
         path: playwright-repo
         fetch-depth: 1
 
