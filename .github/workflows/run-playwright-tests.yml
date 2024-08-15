@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: MedGrocer/it-qa-tests
-        path: playwright-repo
+        path: it-qa-tests
         ref: main
         token: ${{secrets.PAT}}
         fetch-depth: 1
@@ -29,12 +29,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd playwright-repo
+        cd it-qa-tests
         npm install
         npx playwright install
         
 
     - name: Run Playwright Tests for Software1
       run: |
-        cd playwright-repo
+        cd it-qa-tests
         npx playwright test --config=./playwright.config.js ./tests/blp
