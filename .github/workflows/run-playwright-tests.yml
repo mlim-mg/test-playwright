@@ -37,4 +37,4 @@ jobs:
     - name: Run Playwright Tests for Software1
       run: |
         cd it-qa-tests
-        npx playwright test --config=./playwright.config.js ./tests/blp
+        npx playwright test --config=./playwright.config.ts ./tests/blp
